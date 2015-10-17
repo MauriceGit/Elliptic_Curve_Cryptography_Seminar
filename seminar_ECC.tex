@@ -1,0 +1,43 @@
+\input{stuff/includes}
+
+\begin{document}
+	\pagenumbering{Roman}
+	
+	\begin{spacing}{1}
+	
+	\input{chapters/titelseite}
+	%\input{chapters/sperrvermerk}
+	%\input{chapters/abstract}
+	
+	% Inhaltsverzeichnis im PDF verlinkbar machen
+	\pdfbookmark[0]{Inhaltsverzeichnis}{toc_label}
+	\tableofcontents
+
+ 	\listoftodos	
+	
+	%\cleardoublepage
+	
+	%\input{stuff/acronyms}
+	
+	\newpage
+		
+	\end{spacing}
+	
+	\pagenumbering{arabic}
+	\onehalfspacing
+	
+	\input{chapters/einleitung}	
+	\input{chapters/einleitung_Mathematik}	
+	
+
+	%\listoffigures
+	%\listoftables
+	%\renewcommand{\lstlistlistingname}{Listingverzeichnis}
+	%\lstlistoflistings
+		
+	
+	%\bibliographystyle{ieeetr}
+	%\bibliography{stuff/bibliography}
+	
+
+\end{document}
