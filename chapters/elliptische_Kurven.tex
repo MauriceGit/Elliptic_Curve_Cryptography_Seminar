@@ -1,0 +1,41 @@
+
+\chapter{Elliptische Kurven}
+
+\section{Allgemeine Funktionsweise}
+
+
+
+\section{Diffie-Hellman Schlüsseltausch}
+
+
+
+\section{Elgamal ?}
+
+\begin{itemize}
+	\item Diskretes Logarithmus-Problem für Elliptische Kurven (ECDLP)
+	\item Elliptische Kurven über finiten Feldern
+	\item Elliptic Curve Cryptography
+	\item Elliptic Curve Diffie-Hellman
+	\item Elliptic Curve Elgamal
+	\item Abgrenzung zu RSA, Vor/Nachteile
+	\item 
+\end{itemize}
+
+\iffalse 
+
+	Plot erstellen mit gnuplot:
+	
+	set view 0,0
+	set isosample 500,500
+	set contour base
+	set cntrparam levels discrete 0
+	unset surface
+	set grid
+	unset key
+	unset ztics
+	set xlabel 'x'
+	set ylabel 'y'
+	f(x,y) = x**3 + 3*x + 2 - y**2
+	splot [-10:10][-10:10] f(x,y)
+
+\fi
