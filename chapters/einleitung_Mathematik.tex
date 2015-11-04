@@ -32,6 +32,15 @@ berechnen lässt, während die Umkehrfunktion (auch im Sinne der Komplexitätsth
 Diese Art von Funktion nennt sich auch Einwegfunktion und bildet die mathematische Grundlage aller asynchronen 
 Verfahren der Kryptografie.	
 
+\section{Diskretes Logarithmus Problem für elliptische Kurven (ECDLP)}
+In der definierten Gruppe einer elliptischen Kurve mit einer multiplikativen Notation
+ist das diskrete Logarithmus Problem definiert wie folgt:
+
+Gegeben seien P und Q einer Gruppe definiert über einer elliptischen Kurve.
+Folgende Gleichung muss gelöst werden: $ P*k = Q $. $k$ ist wird der diskrete Logarithmus von Q
+auf Basis von P genannt.
+
+
 \section{Anforderungen an asynchrone kryptografische Verfahren}
 
 Asynchrone Verfahren der Kryptografie basieren auf dem Prinzip, dass zwei Kommunikationspartner verschlüsselt miteinander kommunizieren können ohne ein gemeinsames Geheimnis oder Schlüssel abgesprochen zu haben. Zwei entscheidende Anforderungen dabei sind, dass ein beliebiger Angreifer weder in der Lage sein soll die Kommunikation mitzulesen oder sie zu semantisch korrekt manipulieren.
