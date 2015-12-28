@@ -20,15 +20,15 @@ Alle Operationen asynchroner Verschlüsselungen finden im Kontext meist primer R
 muss keine weitere Überprüfung auf Eindeutigkeit und Zyklen erfolgen, da der Generator, eine Primzahl, die gewünschten
 Eigenschaften der Gruppe bereits vorgibt.
 
-\section{Diskretes Logarithmus Problem (DLP)}
+\section{Diskretes Logarithmus Problem (DLP)} \label{DLP}
 
-Sei $ G $ eine zyklische Gruppe und $ g \in G $. Gegeben sei ein Element $h$ in der durch $g$ generierten Teilgruppe.
+Sei $ G $ eine zyklische Gruppe und $ g \in G $ ein erzeugendes Element. Gegeben sei ein Element $h$ in der durch $g$ generierten Teilgruppe.
 Das diskrete Logarithmus Problem für $G$ besteht nun darin, ein Element $m$ zu finden, welches die Gleichung $ h = g^m $ erfüllt.
 Der kleinste Wert $m$, welches $h = g^m$ erfüllt, ist der sogenannte Logarithmus von $h$ im Bezug auf $g$. Also: $m = log_g(h)$.
 
 Das diskrete Logarithmus Problem wird in der Kryptografie häufig als das zu Grunde liegende Problem für asynchronen Schlüsseltausch, digitale Signaturen oder Hash-Funktionen genutzt. Es eignet sich zur Nutzung in kryptografischen
 Systemen durch den Umstand, dass sich im Sinne der Komplexitätstheorie der diskrete Logarithmus nur sehr ineffizient
-berechnen lässt, während die Umkehrfunktion (auch im Sinne der Komplexitätstheorie) einfach berechnen lässt.
+berechnen lässt, während die Umkehrfunktion (auch im Sinne der Komplexitätstheorie) einfach berechenbar ist.
 Diese Art von Funktion nennt sich auch Einwegfunktion und bildet die mathematische Grundlage aller asynchronen 
 Verfahren der Kryptografie.	
 
@@ -40,9 +40,10 @@ Gegeben seien P und Q einer Gruppe definiert über einer elliptischen Kurve.
 Folgende Gleichung muss gelöst werden: $ P*k = Q $. $k$ ist wird der diskrete Logarithmus von Q
 auf Basis von P genannt.
 
+\newpage
 
 \section{Anforderungen an asynchrone kryptografische Verfahren}
 
-Asynchrone Verfahren der Kryptografie basieren auf dem Prinzip, dass zwei Kommunikationspartner verschlüsselt miteinander kommunizieren können ohne ein gemeinsames Geheimnis oder Schlüssel abgesprochen zu haben. Zwei entscheidende Anforderungen dabei sind, dass ein beliebiger Angreifer weder in der Lage sein soll die Kommunikation mitzulesen oder sie zu semantisch korrekt manipulieren.
+Asynchrone Verfahren der Kryptografie basieren auf dem Prinzip, dass zwei Kommunikationspartner verschlüsselt miteinander kommunizieren können ohne ein gemeinsames Geheimnis oder Schlüssel abgesprochen zu haben. Zwei entscheidende Anforderungen dabei sind, dass ein beliebiger Angreifer weder in der Lage sein soll die Kommunikation mitzulesen noch sie zu semantisch korrekt zu manipulieren.
 
 

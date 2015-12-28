@@ -27,13 +27,22 @@
 
 % Automatische Kopfzeile mit Kapitel und Abschnittsnamen
 \automark[section]{chapter}
-
+ 
 % Unten rechts Seitenzahl ausgeben
 \ofoot[\pagemark]{\pagemark}
 
 % Kopfzeile nur auf Seiten ohne neuen Kapitelanfang
 \ihead[]{\leftmark}
 \ohead[]{\rightmark}
+
+% Für vernünftige interne Verweise
+
+\usepackage{titleref}
+\usepackage{fancyref}
+\usepackage{float}
+\usepackage{natbib}
+
+\usepackage[font=small,skip=0pt]{caption}
 
 % Kopfzeile aktivieren
 \pagestyle{scrheadings}

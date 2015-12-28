@@ -1,0 +1,85 @@
+\begin{thebibliography}{10}
+
+\bibitem{ecc_attack1}
+T.~Okamoto A.~J.~Menezes and S.~A. Vanstone.
+\newblock {Reducing elliptic curve logarithms to logarithms in a finite field}.
+\newblock Technical report, EEE Transactions on Information Theory,
+  39:1639–1646, 1993.
+
+\bibitem{ecc_stuff}
+Rene Algesheimer.
+\newblock {\em {Elliptische Kurven als alternatives Public Key-Verfahren im
+  Homebanking-Standard HBCI}}.
+\newblock \url{www.diplom.de}, 2000.
+
+\bibitem{dh_sec1}
+Daniel R. L.~Brown Certicom~Research.
+\newblock {Standards for Efficient Cryptography; SEC 1: Elliptic Curve
+  Cryptography}.
+\newblock \url{http://www.secg.org/sec1-v2.pdf}, 2009.
+
+\bibitem{security_bits}
+William Burr William~Polk Elaine~Barker, William~Barker and Miles Smid.
+\newblock {COMPUTER SECURITY -Recommendation for Key Management – Part 1:
+  General}.
+\newblock
+  \url{http://csrc.nist.gov/publications/nistpubs/800-57/sp800-57_part1_rev3_general.pdf},
+  2012.
+
+\bibitem{elgamal_real}
+Neal Koblitz.
+\newblock {Elliptic Curve Cryptosystems}.
+\newblock
+  \url{http://www.ams.org/journals/mcom/1987-48-177/S0025-5718-1987-0866109-5/S0025-5718-1987-0866109-5.pdf},
+  1987.
+
+\bibitem{rsa_vs_ecc}
+Uwe Krieger.
+\newblock {Elliptische Kurven – Basis für ein alternatives Public Key
+  Kryptosystem}.
+\newblock \url{http://www.ecc-brainpool.org/art_it.pdf}, ---.
+
+\bibitem{ecc_complexity}
+Uwe Krieger.
+\newblock {Elliptische Kurven – Basis für ein alternatives Public Key
+  Kryptosystem}.
+\newblock \url{http://www.secg.org/sec1-v2.pdf}, O.J.
+
+\bibitem{explicit_addition}
+Ben Lynn.
+\newblock {Explicit Addition Formulae}.
+\newblock \url{https://crypto.stanford.edu/pbc/notes/elliptic/explicit.html},
+  1999.
+
+\bibitem{dh_nist}
+NSA.
+\newblock {Suite B Implementer’s Guide to NIST SP 800-56A}.
+\newblock \url{https://www.nsa.gov/ia/_files/SuiteB_Implementer_G-113808.pdf},
+  2009.
+
+\bibitem{ecc_attack2b}
+T.~Satoh and K.~Araki.
+\newblock {Fermat quotients and the polynomial time discrete log algorithm for
+  anomalous elliptic curves}.
+\newblock Technical report, Commentarii Mathematici Universitatis Sancti Pauli,
+  47:81–92, 1998.
+
+\bibitem{ecc_attack2}
+I.~A. Semaev.
+\newblock {Evaluation of discrete logarithms in a group of p-torsion points of
+  an elliptic curve in characteristic p}.
+\newblock Technical report, Mathematics of Computation, 67:353–356, 1998.
+
+\bibitem{ecc_attack3}
+Nigel Smart.
+\newblock {Weil Descent Program}.
+\newblock \url{http://www.cs.bris.ac.uk/~nigel/weil_descent.html}, O.J.
+
+\bibitem{elgamal_stackoverflow}
+tylo.
+\newblock {ElGamal with elliptic curves}.
+\newblock
+  \url{http://crypto.stackexchange.com/questions/9987/elgamal-with-elliptic-curves},
+  2013.
+
+\end{thebibliography}
