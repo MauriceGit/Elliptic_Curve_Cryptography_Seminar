@@ -1,20 +1,22 @@
 \chapter{Zur Erinnerung}
 
 In den folgenden Abschnitten werden einige grundlegende Algorithmen und Probleme erläutert, welche im Kontext der kommenden 
-Kapitel genutzt werden und essentiell sind für die Funktionalität und Effektivität vieler kryptografischer Verfahren, wie RSA und Methoden mit elliptischen Kurven.
+Kapitel genutzt werden und essentiell sind für die Funktionalität und Effektivität vieler kryptografischer Verfahren, wie RSA und Methoden 
+auf Basis elliptischer Kurven.
 
-Es wird ein Grundverständnis der diskreten Mathematik (Definition von Ringen, Feldern, Gruppen) für das Verständnis der folgenden Kapitel vorausgesetzt.
+Es wird ein Grundverständnis der diskreten Mathematik und der algebraischen Gruppentheorie für die folgenden Kapitel vorausgesetzt.
 
 \section{Prime Restklassengruppen}
 
-Bei der Erzeugung asynchroner Verschlüsselungen, zu denen auch die Verfahren elliptischer Kurven gehören, befinden wir uns in mathematischen Gruppen.
-Eine Gruppe ist meist eine endliche Menge an Elementen, kombiniert mit einem Operator. Also sei $(G,\cdotp)$ eine Gruppe.
-Die Ordnung der Gruppe $G$ entspricht der Anzahl Elemente in $G$. Die Ordnung eines Elementes $\alpha \in G$ ist 
-die niedrigste Zahl $n$ für die gilt: $\alpha^n = e$ mit $e =$ dem neutralen Element bezüglich des Operators $\cdotp$ in $G$.
+Bei der Erzeugung asynchroner Verschlüsselungen, zu denen auch die Verfahren elliptischer Kurven gehören, 
+erfolgen die Berechnungen im Kontext algebraischer Gruppen.
+Eine Gruppe ist eine endliche Menge an Elementen, kombiniert mit einem Operator. Also sei $(G,\cdotp)$ eine Gruppe.
+Die Ordnung der Gruppe $G$ entspricht der Anzahl der Elemente in $G$. Die Ordnung eines Elementes $\alpha \in G$ ist 
+die niedrigste Zahl $n$ für die gilt: $\alpha^n = e\ mod\ n$ mit $e =$ dem neutralen Element bezüglich des Operators $\cdotp$ in $G$.
 
 Jede (zyklische) Gruppe besitzt einen Generator $\alpha$, für den gilt, dass $\forall a \in G \ \exists i \in  \mathbb{N}: \alpha^i = \alpha \cdotp \alpha \cdotp \cdotp \cdotp \alpha = a $. Sofern $G$ eine zyklische endliche Gruppe ist und $\alpha$ ein Generator dieser, so entspricht die Ordnung von $\alpha$ der von $G$.
 
-Ein Beispiel einer primen Restklassengruppe ist $(\mathbb{Z}_p,\cdotp)$ mit der Voraussetzung, dass der Generator p eine Primzahl ist. Die Ordnung dieser Gruppe ist $p-1$.
+Ein Beispiel einer primen Restklassengruppe ist $(\mathbb{Z}_p,\cdotp)$ mit der Voraussetzung, dass der Generator $p$ eine Primzahl ist. Die Ordnung dieser Gruppe ist $p-1$.
 
 Alle Operationen asynchroner Verschlüsselungen finden im Kontext meist primer Restklassengruppen statt. Hier 
 muss keine weitere Überprüfung auf Eindeutigkeit und Zyklen erfolgen, da der Generator, eine Primzahl, die gewünschten
@@ -27,8 +29,8 @@ Das diskrete Logarithmus Problem für $G$ besteht nun darin, ein Element $m$ zu 
 Der kleinste Wert $m$, welches $h = g^m$ erfüllt, ist der sogenannte Logarithmus von $h$ im Bezug auf $g$. Also: $m = log_g(h)$.
 
 Das diskrete Logarithmus Problem wird in der Kryptografie häufig als das zu Grunde liegende Problem für asynchronen Schlüsseltausch, digitale Signaturen oder Hash-Funktionen genutzt. Es eignet sich zur Nutzung in kryptografischen
-Systemen durch den Umstand, dass sich im Sinne der Komplexitätstheorie der diskrete Logarithmus nur sehr ineffizient
+Systemen durch den Umstand, dass sich, im Sinne der Komplexitätstheorie, der diskrete Logarithmus nur sehr ineffizient
 berechnen lässt, während die Umkehrfunktion (auch im Sinne der Komplexitätstheorie) einfach berechenbar ist.
-Diese Art von Funktion nennt sich auch Einwegfunktion und bildet die mathematische Grundlage aller asynchronen 
+Diese Art von Funktion nennt sich auch Einwegfunktion/Falltürfunktion und bildet die mathematische Grundlage aller asynchronen 
 Verfahren der Kryptografie.	
 

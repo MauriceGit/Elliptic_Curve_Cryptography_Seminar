@@ -6,15 +6,15 @@
 
 \subsection{Diskretes Logarithmus Problem für elliptische Kurven (ECDLP)}
 In der definierten Gruppe einer elliptischen Kurve mit einer multiplikativen Notation
-ist das diskrete Logarithmus Problem definiert wie folgt:
+ist das diskrete Logarithmus Problem wie folgt definiert.
 
-Gegeben seien P und Q einer Gruppe definiert über einer elliptischen Kurve.
-Folgende Gleichung muss gelöst werden: $ P*k = Q $. $k$ ist wird der diskrete Logarithmus von Q
-auf Basis von P genannt.
+Gegeben seien $P$ und $Q$ einer Gruppe definiert über einer elliptischen Kurve.
+Folgende Gleichung muss gelöst werden: $ P*k = Q $. $k$ ist wird der diskrete Logarithmus von $Q$
+auf Basis von $P$ genannt.
 
 \subsection{Anforderungen an asynchrone kryptografische Verfahren}
 
-Asynchrone Verfahren der Kryptografie basieren auf dem Prinzip, dass zwei Kommunikationspartner verschlüsselt miteinander kommunizieren können ohne ein gemeinsames Geheimnis oder Schlüssel abgesprochen zu haben. Zwei entscheidende Anforderungen dabei sind, dass ein beliebiger Angreifer weder in der Lage sein soll die Kommunikation mitzulesen noch sie zu semantisch korrekt zu manipulieren.
+Asynchrone Verfahren der Kryptografie basieren auf dem Prinzip, dass zwei Kommunikationspartner verschlüsselt miteinander kommunizieren können, ohne ein gemeinsames Geheimnis oder Schlüssel abgesprochen zu haben. Zwei entscheidende Anforderungen dabei sind, dass ein beliebiger Angreifer weder in der Lage sein soll die Kommunikation mitzulesen, noch sie zu semantisch korrekt zu manipulieren.
 Beide Anforderungen werden mit Kryptografie elliptischer Kurven abgedeckt.
 
 \section{Allgemeine Funktionsweise} \label{ECC_DLP}
@@ -53,7 +53,7 @@ Eine Kurve mit $a = 1$ und $b = 1$ ergibt folgende elliptische Kurve:
 
 Eine elliptische Kurve ist demnach definiert über die zwei kurven-lokale Konstanten $a$ und $b$.
 Die Schreibweise zur Definition einer elliptischen Kurve ist $E(a;b)$.
-Punkte auf der elliptischen Kurve sind definiert über ihre $x$ und $y$-Koordinaten. Also: $p = (x;y)$.
+Punkte auf der elliptischen Kurve sind definiert über ihre ganzzahligen $x$ und $y$-Koordinaten. Also: $p = (x;y)$.
 
 Um eine algebraische Gruppe über Punkten einer elliptischen Kurve definieren zu können, muss die additive
 Operation auf Elementen der Gruppe definiert werden und ein neutrales Element existieren.
@@ -62,7 +62,7 @@ Für jede elliptische Kurve gilt, dass jede Gerade, definiert durch zwei Punkte 
 dritten Schnittpunkt mit der elliptischen Kurve besitzt.
 
 Seien nun $P$ und $Q$ Punkte auf einer elliptischen Kurve, so existiert ein Schnittpunkt der Geraden durch $P$
-und $Q$ mit einem weiteren Punkt $R$ der Kurve. Wenn $P = Q$, ist die Gerade definiert als die Tangente am
+und $Q$, mit einem weiteren Punkt $R$ der Kurve. Wenn $P = Q$, ist die Gerade definiert als die Tangente am
 Punkt $P$. Da es exakt drei Schnittpunkte einer so definierten Gerade mit der elliptischen Kurve gibt, 
 ist die Existenz und Einzigartigkeit von $R$ garantiert.
 
@@ -72,7 +72,7 @@ Element und ist per Konvention ein Punkt im Unendlichen.
 Betrachtet man nun eine Gerade zwischen $R$ und $O$, so schneidet diese einen dritten Punkt der Kurve. 
 Dieser ist definiert als $P + Q$.
 
-Sei $OO$ der Schnittpunkt der Tangente an $O$ mit der Kurve, wird der Schnittpunkt der Geraden zwischen $OO$ und $P$ mit der elliptischen Kurve nun $-P$ genannt.\cite{explicit_addition}
+Sei $OO$ der Schnittpunkt der Tangente an $O$ mit der Kurve, wird der Schnittpunkt der Geraden zwischen $OO$ und $P$ mit der elliptischen Kurve nun $-P$ genannt\cite{explicit_addition}.
 
 Die folgenden Gleichungen belegen die genannten Berechnungen:
 
@@ -107,7 +107,7 @@ ist nun $-(P+P)$.
 
 Mit den aktuell definierten Operationen auf elliptischen Kurven entsteht eine Gruppe. 
 Eine multiplikative Operation ist nicht definiert und auch nicht trivial zu konstruieren.
-Im weiteren Verlauf wird jedoch eine Multiplikation benötigt um einen asynchronen Schlüsselaustausch zu ermöglichen.
+Im weiteren Verlauf wird jedoch eine Integer-Multiplikation benötigt um einen asynchronen Schlüsselaustausch zu ermöglichen.
 
 Da ausschließlich multiplikative Operationen eines Punktes mit einem Integer erforderlich sind, wird 
 eine Multiplikation im Folgenden durch eine wiederholte Addition eines Punktes simuliert.
@@ -122,7 +122,7 @@ Der Einfachbarkeitshalber sind alle Beispiele über $\mathbb{Z}_p$ definiert.
 
 \section{Asynchroner Schlüsseltausch}
 
-Asynchroner Schlüsseltausch wird gemeinhin genutzt um einen Schlüssel für eine weitere synchrone Verschlüsselung über 
+Asynchroner Schlüsseltausch wird gemeinhin genutzt, um einen Schlüssel für eine weitere synchrone Verschlüsselung über 
 einen unsicheren Kanal zu transportieren. Die bekannten Algorithmen und Schemata wie Diffie-Hellman stützen direkt auf
 das diskrete Logarithmus-Problem. Die gleichen Prinzipien können jedoch auch mit Hilfe elliptischer Kurven erreicht 
 werden. Dabei handelt es sich um analoge Verfahren zu ebendiesen und nicht um die exakten.
@@ -139,26 +139,26 @@ elliptischen Kurve abbildet: $f:m \rightarrow P_m$.
 
 \subsection{Diffie-Hellman}
 
-Ein analoger Algorithmus zu Diffie-Hellman, basieren auf elliptischen Kurven geht folgenderweise vor.
+Ein analoger Algorithmus zu Diffie-Hellman, basierend auf elliptischen Kurven geht folgenderweise vor.
 
 Öffentlich bekannt ist ein gemeinsamer Punkt $G$ (erzeugendes Element der Gruppe) auf der elliptischen Kurve $E$.
-Beide Teilnehmer des Schlüsselaustausches erstellen ihr jeweiliges Schlüsselpaar bestehend aus einem privaten Schlüssel
-$d$ mit $0 < d < N$ und $ggt(d, N) = 1$\footnote{Größter gemeinsamer Teiler (auch gcd)} mit $N = |E|$ und einem öffentlichen 
-Schlüssel $Q$ mit $Q = d * G$.
+Beide Teilnehmer des Schlüsselaustausches erstellen ihr jeweiliges Schlüsselpaar, bestehend aus einem privaten Schlüssel
+$d$, mit $0 < d < N$ und $ggt\footnote{Größter gemeinsamer Teiler (auch gcd)}(d, N) = 1$ mit $N = |E|$ und einem öffentlichen 
+Schlüssel $Q$, mit $Q = d * G$.
 
 Alice' Schlüsselpaar: $(d_A, Q_A)$
 
-Bobs Schlüsselpaar: $(d_A, Q_A)$
+Bobs Schlüsselpaar: $(d_B, Q_B)$
 
 Der öffentliche Part des Schlüsselpaares ist jeweils beiden Kommunikationsteilnehmern bekannt.
 Alice berechnet nun $d_A*Q_B = (x_k, y_k)$. Bob berechnet $d_B*Q_A = (x_k, y_k)$.
 Die X-Koordinate $x_k$ des Ergebnispunktes auf der elliptischen Kurve ist nun das gemeinsame Geheimnis, welches
 ausschließlich Alice und Bob bekannt ist.
 
-Die Gültigkeit, dass beide Teilnehmer das gleiche Ergebnis berechnen zeigt sich durch folgende Gleichungsauflösung 
+Die Gültigkeit, dass beide Teilnehmer das gleiche Ergebnis berechnen zeigt sich durch folgende Gleichungsauflösung: 
 $d_A*Q_B = d_A*d_B*G = d_B*d_A*G = d_B*Q_A$.
 
-Um aus dem gemeinsamen Geheimnis einen Schlüssel zu erzeugen, wird die X-Koordinate des Ergebnispunktes meist kryptografisch gehashed und
+Um aus dem gemeinsamen Geheimnis einen Schlüssel zu erzeugen, wird die X-Koordinate $x_k$ des Ergebnispunktes meist kryptografisch gehashed und
 als symmetrischer Schlüssel verwendet.
 
 \subsection{Massey-Omura}
@@ -174,28 +174,29 @@ Bob berechnet nun $d' * d * P_m = P_m$ und erhält die ursprüngliche Nachricht 
 
 \subsection{ElGamal}
 
-Auch eine Variation vom klassischen ElGamal kann mit elliptischen Kurven genutzt werden.
+Auch das Schema von ElGamal lässt sich als Variation des Originalen mit elliptischen Kurven als Grundlage nutzen.
 Öffentlich bekannt ist, wie bei Diffie-Hellman, ein gemeinsamer Punkt $G$ (erzeugendes Element der Gruppe) auf der elliptischen Kurve $E$.
 
 Bob generiert sich einen geheimen Wert $d$ und veröffentlicht den Punkt auf der Kurve $d * G$.
 Alice generiert sich einen Wert $c$ und sendet Bob das Tupel $(c * G, P_m + c*(d*G))$. 
 Bob kann nun den ersten Teil des übertragenen Tupels mit seinem geheimen Wert $d$ multiplizieren und vom zweiten Teil des Tupels abziehen.
-Das Ergebnis der Subtraktion ist die eigentliche zu geheime Nachricht $P_m$.
+Das Ergebnis der Subtraktion ist die eigentliche geheime Nachricht $P_m$.
 
 Die Auflösung lässt sich zeigen durch: $(P_m + c * (d * G)) - (d * (c * G)) = P_m$.
 
 \section{Signieren mit elliptischen Kurven (ECDSA\footnote{Elliptic Curve Digital Signature Algorithm})}
 
-Wie auch mit anderen asynchronen Verfahren zur Verschlüsselung ist es oft notwendig, Nachrichten zu signieren und
+Wie auch mit anderen asynchronen Verfahren zur Verschlüsselung, ist es oft notwendig, Nachrichten zu signieren und
 zuverlässig auf Authentizität prüfen zu können.
 Der Signier-Algorithmus mit elliptischen Kurven ist dabei eine Abwandlung des normalen DSA\footnote{Digital Signature Algorithm}.
 
 Die Ausgangssituation ist, dass Alice Bob eine Nachricht schickt, welche Bob auf Authentizität prüfen möchte.
 Beide Kommunikations-Teilnehmer einigen sich im Vorhinein auf eine elliptische Kurve $C$, ein generierendes Element $G$ aus $C$ 
-(Punkt auf der Kurve) und eine prime, multiplikative Ordnung $n$ des Generators $G$. Dabei gilt $x * G = O$.
+(Punkt auf der Kurve) und eine prime, multiplikative Ordnung $n$ des Generators $G$. Dabei gilt $n * G = O$.
+% eben noch x * G = O ... hmm...
 
-Alice generiert oder besitzt ein Schlüsselpaar mit einem privaten Schlüssel $d_A$ (zufälligen Integer aus dem Interval $[1, n-1]$) 
-und einen öffentlichen Schlüssel (Punkt auf der Kurve $C$) $Q_A = d_A*G$.
+Alice generiert oder besitzt ein Schlüsselpaar mit einem privaten Schlüssel $d_A$ (zufälliger Integer aus dem Interval $[1, n-1]$) 
+und einen öffentlichen Schlüssel (Punkt auf der Kurve $C$): $Q_A = d_A*G$.
 
 \subsection{Signieren einer Nachricht}\label{sign}
 
@@ -218,7 +219,7 @@ eine potentiell valide Signatur handelt. Dazu gehören Checks, ob es sich bei $Q
 (mit korrekten Koordinaten) und dieser nicht dem neutralen Element $O$ entspricht. Zusätzlich kann geprüft werden, ob 
 $n*Q_A = O$ gilt.
 
-Das Prüfen, ob eine empfangene Signatur korrekt ist erfolgt auf folgende Weise.
+Das Prüfen, ob eine empfangene Signatur korrekt ist, erfolgt auf folgende Weise.
 
 \begin{compactenum}[(1)]
 	\item Verifizieren, dass es sich bei den Signaturwerten $(r,s)$ um korrekte Integer-Werte im Bereich $[1, n-1]$ handelt.
@@ -337,7 +338,7 @@ Generell sind Kurven für die praktische oder theoretische Angriffsmöglichkeite
 Im Folgenden werden die Schlüssellängen verschiedener synchroner und asynchroner kryptografischer Algorithmen
 bezüglich ihrer Sicherheitsbits miteinander verglichen.\cite{security_bits}
 Wie klar zu erkennen ist, benötigt eine Verschlüsselung/Schlüsselübergabe für eine gleiche Anzahl an Sicherheitsbits
-deutlich kürzere Schlüssel. Damit einher gehend kann eine Berechnung mit elliptischen Kurven deutlich schneller von Statten gehen,
+deutlich kürzere Schlüssel bei elliptischen Kurven. Damit einher gehend kann eine Berechnung mit elliptischen Kurven deutlich schneller vonstatten gehen,
 als beispielsweise RSA oder Diffie-Hellman basieren auf dem diskreten Logarithmus-Problem.
 
 \begin{table}[H]
