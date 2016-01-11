@@ -9,13 +9,15 @@ In der definierten Gruppe einer elliptischen Kurve mit einer multiplikativen Not
 ist das diskrete Logarithmus Problem wie folgt definiert.
 
 Gegeben seien $P$ und $Q$ einer Gruppe definiert über einer elliptischen Kurve.
-Folgende Gleichung muss gelöst werden: $ P*k = Q $. $k$ ist wird der diskrete Logarithmus von $Q$
+Folgende Gleichung muss gelöst werden: $ P*k = Q $. $k$ wird der diskrete Logarithmus von $Q$
 auf Basis von $P$ genannt.
 
 \subsection{Anforderungen an asynchrone kryptografische Verfahren}
 
 Asynchrone Verfahren der Kryptografie basieren auf dem Prinzip, dass zwei Kommunikationspartner verschlüsselt miteinander kommunizieren können, ohne ein gemeinsames Geheimnis oder Schlüssel abgesprochen zu haben. Zwei entscheidende Anforderungen dabei sind, dass ein beliebiger Angreifer weder in der Lage sein soll die Kommunikation mitzulesen, noch sie zu semantisch korrekt zu manipulieren.
 Beide Anforderungen werden mit Kryptografie elliptischer Kurven abgedeckt.
+
+\newpage
 
 \section{Allgemeine Funktionsweise} \label{ECC_DLP}
 
@@ -41,6 +43,8 @@ Eine Kurve mit den Koeffizienten $a = -1$ und $b = 0$ ergibt folgende elliptisch
 	\end{center}
 	\caption{$y^2 = x^3 -x$}\label{example_1}
 \end{figure}
+
+\newpage
 
 Eine Kurve mit $a = 1$ und $b = 1$ ergibt folgende elliptische Kurve:
 
@@ -79,13 +83,12 @@ Die folgenden Gleichungen belegen die genannten Berechnungen:
 \begin{align*}
 P + Q    &= Q + P \\
 P + O    &= P \\
-(-P) + P &= P = O \\
+(-P) + P &= O \\
 \end{align*}
 
 Zusammengefasst gelten folgende Definitionen für Operationen auf der Gruppe definiert durch Punkte auf der 
 elliptischen Kurve:
 
-\newpage
 
 \textit{\textbf{Negation:}}
 
@@ -118,28 +121,29 @@ Finite elliptische Kurven können über $\mathbb{Z}_p$ oder $GF(p^n)$ mit $p$ al
 Im Kontext der Kryptografie werden jedoch meist nur Kurven über $\mathbb{Z}_p$ und $GF(2^n)$ genutzt.
 Der Einfachbarkeitshalber sind alle Beispiele über $\mathbb{Z}_p$ definiert.
 
-\newpage
 
 \section{Asynchroner Schlüsseltausch}
 
 Asynchroner Schlüsseltausch wird gemeinhin genutzt, um einen Schlüssel für eine weitere synchrone Verschlüsselung über 
-einen unsicheren Kanal zu transportieren. Die bekannten Algorithmen und Schemata wie Diffie-Hellman stützen direkt auf
+einen unsicheren Kanal zu transportieren. Die bekannten Algorithmen und Schemata, wie Diffie-Hellman, stützen direkt auf
 das diskrete Logarithmus-Problem. Die gleichen Prinzipien können jedoch auch mit Hilfe elliptischer Kurven erreicht 
 werden. Dabei handelt es sich um analoge Verfahren zu ebendiesen und nicht um die exakten.
 
-Im Weiteren werden beide Teilnehmer zwischen denen ein Schlüsselaustausch stattfinden soll mit \textit{Alice} und \textit{Bob}
+Im Weiteren werden beide Teilnehmer, zwischen denen ein Schlüsselaustausch stattfinden soll, mit \textit{Alice} und \textit{Bob}
 referenziert.
 
 Die folgenden Attribute gelten für alle vorzustellenden Algorithmen:
 
-Als $E$ wird die elliptische Kurve bezeichnet aus $GF(q)$ wobei $q = p^n$ eine bevorzugt große Zahl darstellt. 
+Als $E$ wird die elliptische Kurve bezeichnet, aus $GF(q)$, wobei $q = p^n$ eine bevorzugt große Zahl darstellt. 
 Die Kurvenparameter der genutzten Kurve sind öffentlich.
 Weiterhin muss eine eindeutige, öffentlich zugängliche Funktion existieren, welche eine Nachricht $m$ auf einen Punkt $P_m$ der 
 elliptischen Kurve abbildet: $f:m \rightarrow P_m$.
 
+\newpage
+
 \subsection{Diffie-Hellman}
 
-Ein analoger Algorithmus zu Diffie-Hellman, basierend auf elliptischen Kurven geht folgenderweise vor.
+Ein analoger Algorithmus zu Diffie-Hellman, basierend auf elliptischen Kurven, geht folgenderweise vor.
 
 Öffentlich bekannt ist ein gemeinsamer Punkt $G$ (erzeugendes Element der Gruppe) auf der elliptischen Kurve $E$.
 Beide Teilnehmer des Schlüsselaustausches erstellen ihr jeweiliges Schlüsselpaar, bestehend aus einem privaten Schlüssel
@@ -204,7 +208,7 @@ Das Erzeugen einer Signatur erfolgt in folgenden Schritten.
 
 \begin{compactenum}[(1)]
 	\item $e = HASH(m)$ \newline Alice erzeugt einen kryptografisch sicheren Hash aus der Nachricht $m$.
-	\item $z$ seien die $L_n$ linkesten Bits aus $e$, mit $L_n$ gleich der Bitlänge der Gruppenordnung $n$.
+	\item $z$ seien die $n$ linkesten Bits aus $e$, mit $n$ gleich der Bitlänge der Gruppenordnung.
 	\item Alice berechnet einen kryptografisch sicheren Zufallswert $k$ aus dem Interval $1, n-1$.
 	\item $(x_1, y_1) = k * G$ \newline Alice berechnet den Kurvenpunkt aus $k*G$.
 	\item $r = x_1\ mod\ n$ \newline $s = k^{-1}(z+r*d_A)\ mod\ n$
@@ -268,7 +272,7 @@ ergibt sich folgende Formel:
 
 $D = k * G$
 
-Welches genau dem Kurvenpunkt entspricht, der als $r$ im Signaturtupel mitgegeben wird (Siehe Schritt 4 in Kapitel \ref{sign} \nameref{sign}).
+Welche genau dem Kurvenpunkt entspricht, der als $r$ im Signaturtupel mitgegeben wird (Siehe Schritt 4 in Kapitel \ref{sign} \nameref{sign}).
 
 \section{Komplexität und Berechenbarkeit von ECC}
 
@@ -277,7 +281,7 @@ von Kryptografie über elliptische Kurven auf dem diskreten Logarithmus-Problem 
 (ECDLP\footnote{elliptic-curve discrete logarithm problem}).
 Zum aktuellen Zeitpunkt sind noch keine Algorithmen bekannt, welche dieses Problem effizient oder in subexponentieller Zeit
 lösen.
-Die effizientesten derzeit bekannten Algorithmen basieren auf dem Pollard-$\rho$ und dem Pollard-$\lambda$-Methoden\cite{ecc_complexity}.
+Die effizientesten derzeit bekannten Algorithmen basieren auf den Pollard-$\rho$ und Pollard-$\lambda$-Methoden\cite{ecc_complexity}.
 
 Die Pollard-$\rho$-Methode benötigt etwa $\sqrt{\pi * n / 2}$ Schritte, die Pollard-$\lambda$-Methode etwa $2*\sqrt{n}$ Schritte.
 Ein Schritt entspricht grob einer eigenständigen Gruppenoperation auf der elliptischen Kurve. Beide Methoden eignen sich
@@ -338,8 +342,8 @@ Generell sind Kurven für die praktische oder theoretische Angriffsmöglichkeite
 Im Folgenden werden die Schlüssellängen verschiedener synchroner und asynchroner kryptografischer Algorithmen
 bezüglich ihrer Sicherheitsbits miteinander verglichen.\cite{security_bits}
 Wie klar zu erkennen ist, benötigt eine Verschlüsselung/Schlüsselübergabe für eine gleiche Anzahl an Sicherheitsbits
-deutlich kürzere Schlüssel bei elliptischen Kurven. Damit einher gehend kann eine Berechnung mit elliptischen Kurven deutlich schneller vonstatten gehen,
-als beispielsweise RSA oder Diffie-Hellman basieren auf dem diskreten Logarithmus-Problem.
+deutlich kürzere Schlüssel bei elliptischen Kurven. Damit einher gehend kann eine Schlüssel-Generierung mit elliptischen Kurven deutlich schneller vonstatten gehen,
+als beispielsweise eine Schlüssel-Generierung bei RSA. Dies lässt sich jedoch leider nicht auf den Schlüsselaustausch verallgemeinern. Hier ist RSA noch schneller, als elliptische Kurven.
 
 \begin{table}[H]
 	\centering
